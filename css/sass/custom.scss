@@ -1,0 +1,150 @@
+// Fonts
+
+$font-default: 'Lato', sans-serif;
+$accent-color: #01A3AB;
+$blue-color: #1040B9;
+$light-gray-color: #bbbbbb;
+$gray-color: #666;
+
+* {
+  font-family: $font-default;
+  font-weight: normal;
+}
+body {
+  border-top: 10px solid $accent-color;
+}
+
+.container {
+  @include outer-container;
+  overflow: hidden;
+
+  @include media(max-width 1224px) {
+    padding: 0 20px;
+  }
+}
+
+h1 {
+  margin: 1em 0;
+  font-size: 2em;
+  font-weight: bold;
+
+  span {
+    font-weight: 300;
+    color: $light-gray-color;
+  }
+  @include media(max-width 824px) {
+    font-size: 1.5em;
+    span { display: none; }
+  }
+}
+
+h2 {
+  font-size: 1.0em;
+  margin-top: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: 0.9em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+a {
+  text-decoration: none;
+  color: $accent-color;
+  &:hover {
+    color: $accent-color;
+    text-decoration: underline;
+  }
+}
+
+.img-container {
+  overflow: hidden;
+  max-height: 400px;
+  margin-bottom: 40px;
+  img {
+    width: 100%;
+  }
+}
+section#intro {
+  @include clearfix;
+  margin-bottom: 40px;
+  text-align: center;
+
+  .left-content {
+    @include span-columns(6);
+    padding-right: 20px;
+    padding-bottom: 30px;
+    border-right: 1px solid $light-gray-color;
+    @include media(max-width 524px) {
+      @include span-columns(12);
+      border-right: none;
+    }
+    p {
+      margin-bottom: 0;
+      margin-top: 10px;
+    }
+    p + p { text-indent: 0; }
+    margin-bottom: 1em;
+  }
+  .right-content {
+    @include span-columns(6);
+    @include omega();
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    @include media(max-width 524px) {
+      @include span-columns(12);
+    }
+  }
+  .left-content, .right-content {
+    .box {
+      width: 300px;
+      height: 300px;
+      overflow: hidden;
+      border-radius: 50%;
+      margin: 0 auto;
+      border: 5px solid $accent-color;
+      img {
+        height: 100%;
+      }
+    }
+  }
+}
+.bottom-content {
+  @include span-columns(9);
+  margin-top: 40px;
+  font-size: 0.8em;
+  color: $gray-color;
+  @include media(max-width 824px) {
+    @include span-columns(12);
+  }
+}
+
+footer {
+  margin: 1em 0 0;
+  padding: 1em;
+  background: $accent-color;
+  color: white;
+  p {
+    a { 
+      color: white; 
+      &:hover { color: white; text-decoration: underline; }
+    }
+    text-align: center;
+    font-weight: bold;
+    @include media(max-width 1024px) {
+      font-size: 2.5em;
+    }
+    @include media(max-width 824px) {
+      font-size: 2.0em;
+    }
+    @include media(max-width 524px) {
+      font-size: 1.0em;
+    }
+  }
+}
